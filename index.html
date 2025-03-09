@@ -5,11 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M.R BLOCK - Building Materials</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <!-- Navigation -->
     <nav>
         <div class="logo">M.R BLOCK</div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <div class="nav-links">
             <a href="#home">HOME</a>
             <a href="#about">ABOUT</a>
@@ -18,14 +24,14 @@
         </div>
     </nav>
     <!-- Hero Section -->
-    <header class="hero">
+    <header class="hero" id="home">
         <h1>M.R BLOCK</h1>
         <h2>Matofari Imara kwa Ujenzi Bora</h2>
         <button class="view-products">VIEW PRODUCTS</button>
     </header>
 
     <!-- Quality Building Blocks Section -->
-    <section class="quality-blocks">
+    <section class="quality-blocks" id="about">
         <div class="block-content">
             <div class="block-image">
                 <img src="brick-texture.jpg" alt="Brick texture">
@@ -40,7 +46,7 @@
     </section>
 
     <!-- Products Section -->
-    <section class="products">
+    <section class="products" id="products">
         <h3>QUALITY BRICKS</h3>
         <h2>Strong and affordable building materials</h2>
         
@@ -64,13 +70,22 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact">
+    <section class="contact" id="contact">
         <div class="contact-info">
             <h2>We are here to assist you!</h2>
-            <p><a href="mailto:mrwambal92@gmail.com">mrwambal92@gmail.com</a></p>
+           
             <div class="location">
                 <h3>Location</h3>
-                <p>Dar es Salaam, 02 TZ</p>
+                <div class="location-contacts">
+                    <div class="location-item">
+                        <p>Bunju, Dar es Salaam</p>
+                        <p><a href="tel:+255753371512">+255 753 371 512</a></p>
+                    </div>
+                    <div class="location-item">
+                        <p>Nzuguni, Dodoma</p>
+                        <p><a href="tel:+255753371512">+255 753 371 512</a></p>
+                    </div>
+                </div>
             </div>
             <div class="hours">
                 <h3>Hours</h3>
