@@ -4,37 +4,46 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuLinks = document.querySelectorAll('.nav-links a');
 
     // Toggle menu
-    hamburger.addEventListener('click', () => {
+    hamburger.addEventListener('click', function(e) {
+        e.stopPropagation(); // Prevent click from bubbling
         hamburger.classList.toggle('active');
         navLinks.classList.toggle('active');
     });
 
-    // Handle all navigation clicks
+    // Handle navigation clicks
     menuLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
+            e.stopPropagation(); // Prevent click from bubbling
             
-            // Close the mobile menu
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
-
             // Get the target section
             const targetId = this.getAttribute('href').substring(1);
             const targetSection = document.getElementById(targetId);
             
             if (targetSection) {
-                // Get nav height for offset
+                // Close mobile menu
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+
+                // Calculate scroll position
                 const navHeight = document.querySelector('nav').offsetHeight;
-                
-                // Scroll to section
-                const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - navHeight;
-                
+                const targetPosition = targetSection.offsetTop - navHeight;
+
+                // Smooth scroll to section
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
                 });
             }
         });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        }
     });
 
     // Highlight active section while scrolling
